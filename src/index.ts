@@ -1,7 +1,8 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { connectDB } from './config/db';
+import { routers } from './routers';
 
 // express app
 const app = express();
@@ -18,9 +19,7 @@ connectDB();
 // dotenv port connect
 const PORT: any = process.env.PORT || 5000;
 
-app.get('/', (req: Request, res: Response): void => {
-  res.status(200).send({ message: 'hello' });
-});
+app.get('/api', routers);
 
 app.listen(PORT, (): void => {
   console.log('======== * SERVER RUNING * =======');

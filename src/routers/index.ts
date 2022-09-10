@@ -17,4 +17,4 @@ router.post('/videos', constroller.videos.addVideos);
 router.put('/videos', constroller.videos.putVideos);
 router.delete('/videos', constroller.videos.deleteVideos);
 
-module.exports = router;
+export const routers = router;
